@@ -1,0 +1,6 @@
+openai-whisper
+deep-translator
+torch
+ffmpeg-python
+gdown
+tqdm
