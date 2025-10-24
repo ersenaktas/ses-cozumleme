@@ -1,81 +1,121 @@
-# Ses Çözümleme Programı / Speech-to-Text Program
+Ses Çözümleme Programı / Speech-to-Text Program
 
-[English version below](#speech-to-text-program)
+English version below
 
-Bu program, ses dosyalarını metne çevirme ve çeviri yapma işlemlerini gerçekleştirir.
+Bu program, ses dosyalarını metne dönüştürür ve istenirse Türkçeye çevirir.
+Whisper modeli otomatik olarak indirilir; sadece FFmpeg dosyasını manuel eklemeniz gerekir.
 
-## Önemli Not
+⚙️ FFmpeg Kurulumu
 
-Bu repository'de FFmpeg dosyası boyut sınırlaması nedeniyle bulunmamaktadır. Lütfen FFmpeg'i şu adımları izleyerek manuel olarak ekleyin:
+FFmpeg lisans ve boyut kısıtlamaları nedeniyle depoda bulunmuyor.
+Manuel olarak eklemek için:
 
-1. [FFmpeg'in resmi sitesinden](https://ffmpeg.org/download.html) Windows için olan son sürümü indirin
-2. İndirdiğiniz zip/7z dosyasından `ffmpeg.exe` dosyasını çıkarın
-3. Dosyayı `ffmpeg/ffmpeg2.exe` olarak projenin içindeki `ffmpeg` klasörüne kopyalayın
+FFmpeg'in resmi sitesinden
+ Windows sürümünü indirin.
 
-## Kurulum Adımları
+ffmpeg.exe dosyasını çıkarın.
 
-1. `install.bat` dosyasını yönetici olarak çalıştırın. Bu işlem:
-   - Python'u kontrol edecek ve gerekirse kuracak
-   - Sanal ortam oluşturacak
-   - Gerekli paketleri yükleyecek
-   - Whisper modelini ve FFmpeg'i indirecek (eğer yoksa)
+Bu dosyayı projenin içindeki ffmpeg klasörüne kopyalayın:
 
-2. İlk kurulumdan sonra programı başlatmak için `start.bat` dosyasını kullanın.
+ffmpeg/ffmpeg.exe
 
-## Gereksinimler
+🚀 Kurulum ve Çalıştırma
 
-- Windows 10 veya 11
-- İnternet bağlantısı (ilk kurulum için)
-- En az 2GB boş disk alanı
+install.bat dosyasını çalıştırın.
+Bu işlem:
 
-## Sorun Giderme
+Python 3.10–3.12 sürümünü arar,
 
-Eğer program çalışmazsa:
-1. Python'un doğru kurulduğundan emin olun
-2. İnternet bağlantınızı kontrol edin
-3. Antivirüs programınızın kurulumu engellemediğinden emin olun
+Sanal ortam (venv/) oluşturur,
 
-## İletişim
+Gerekli paketleri (openai-whisper, torch, deep-translator vb.) yükler,
 
-Herhangi bir sorun yaşarsanız destek için iletişime geçin.
+Whisper modelini (small.pt) otomatik indirir,
 
----
+Kurulum tamamlandıktan sonra start.bat dosyasını otomatik olarak başlatır.
 
-# Speech-to-Text Program
+Sonraki çalıştırmalarda yalnızca start.bat dosyasını kullanın.
 
-This program performs speech-to-text conversion and translation operations.
+💻 Gereksinimler
 
-## Important Note
+Windows 10 veya 11
 
-The FFmpeg file is not included in this repository due to size limitations. Please manually add FFmpeg by following these steps:
+Python 3.10–3.12 (otomatik kontrol edilir)
 
-1. Download the latest version for Windows from [FFmpeg's official website](https://ffmpeg.org/download.html)
-2. Extract the `ffmpeg.exe` file from the downloaded zip/7z file
-3. Copy the file to the `ffmpeg` folder in the project as `ffmpeg/ffmpeg2.exe`
+En az 2 GB boş disk alanı
 
-## Installation Steps
+İnternet bağlantısı (ilk kurulum için)
 
-1. Run the `install.bat` file. This process will:
-   - Check for Python and install if necessary
-   - Create a virtual environment
-   - Install required packages
-   - Download Whisper model and FFmpeg (if not present)
+❗ Sorun Giderme
 
-2. After initial setup, use `start.bat` to launch the program.
+Program açılmıyor: install.bat dosyasını tekrar çalıştırın.
 
-## Requirements
+Python bulunamadı: Python 3.12+ yükleyin ve yeniden deneyin.
 
-- Windows 10 or 11
-- Internet connection (for initial setup)
-- At least 2GB free disk space
+FFmpeg hatası: ffmpeg/ffmpeg.exe dosyasının mevcut olduğundan emin olun.
 
-## Troubleshooting
+Model eksik: install.bat modeli otomatik indirir; internet bağlantınızı kontrol edin.
 
-If the program doesn't work:
-1. Make sure Python is installed correctly
-2. Check your internet connection
-3. Ensure your antivirus isn't blocking the installation
+📧 İletişim
 
-## Contact
+Herhangi bir hata veya öneri için:
+ersenaktas@gmail.com
 
-If you experience any issues, please reach out for support.
+Speech-to-Text Program
+
+This program converts audio files into text and optionally translates them into Turkish.
+The Whisper model downloads automatically; only FFmpeg must be added manually.
+
+⚙️ FFmpeg Setup
+
+Due to size and licensing limitations, FFmpeg is not included.
+To add it manually:
+
+Download the latest Windows version from FFmpeg's official website
+
+Extract the ffmpeg.exe file.
+
+Copy it into the project folder as:
+
+ffmpeg/ffmpeg.exe
+
+🚀 Installation and Usage
+
+Run install.bat. This will:
+
+Check for Python 3.10–3.12,
+
+Create a virtual environment (venv/),
+
+Install required packages,
+
+Automatically download the Whisper model (small.pt),
+
+Launch start.bat automatically after setup.
+
+For later use, just run start.bat.
+
+💻 Requirements
+
+Windows 10 or 11
+
+Python 3.10–3.12
+
+At least 2 GB of free disk space
+
+Internet connection (required for first setup)
+
+❗ Troubleshooting
+
+Program not launching: rerun install.bat.
+
+Python not found: install Python 3.12+.
+
+FFmpeg error: ensure ffmpeg/ffmpeg.exe exists.
+
+Missing model: install.bat downloads it automatically; check your connection.
+
+📧 Contact
+
+For support or feedback:
+ersenaktas@gmail.com
