@@ -14,7 +14,7 @@ Bu repository'de FFmpeg dosyası boyut sınırlaması nedeniyle bulunmamaktadır
 
 ## Kurulum Adımları
 
-1. `install.bat` dosyasını çalıştırın. Bu işlem:
+1. `install.bat` dosyasını yönetici olarak çalıştırın. Bu işlem:
    - Python'u kontrol edecek ve gerekirse kuracak
    - Sanal ortam oluşturacak
    - Gerekli paketleri yükleyecek
