@@ -23,7 +23,7 @@ for %%p in (
 )
 
 if not defined PYTHON_FOUND (
-    echo Python bulunamadı! Lütfen Python 3.12 veya üstü sürümünü kurun.
+    echo Python bulunamadi! Lütfen Python 3.12 veya ustu bir surumu kurun.
     pause
     exit /b 1
 )
@@ -31,15 +31,15 @@ if not defined PYTHON_FOUND (
 :found_python
 echo Python bulundu: %PYTHON_PATH%
 
-echo Sanal ortam oluşturuluyor...
+echo Sanal ortam olusturuluyor...
 "%PYTHON_PATH%" -m venv "%PROJECT_DIR%venv"
 if errorlevel 1 (
-    echo Sanal ortam oluşturulamadı!
+    echo Sanal ortam olusturulamadi!
     pause
     exit /b 1
 )
 
-echo Sanal ortam aktifleştiriliyor...
+echo Sanal ortam aktiflestiriliyor...
 call "%PROJECT_DIR%venv\Scripts\activate.bat"
 
 echo Pip guncelleniyor...
@@ -48,12 +48,21 @@ python -m pip install --upgrade pip
 echo Gerekli paketler yukleniyor...
 pip install openai-whisper deep-translator torch ffmpeg-python gdown tqdm
 
-echo Whisper modeli ve FFmpeg dosyaları kontrol ediliyor...
+echo Whisper modeli ve FFmpeg dosyalari kontrol ediliyor...
 if not exist "%PROJECT_DIR%whisper_models\small.pt" (
     echo Whisper modeli indiriliyor...
     python "%PROJECT_DIR%download_dependencies.py"
 )
 
-echo Kurulum tamamlandi!
-pause
+echo.
+echo ================================
+echo  Kurulum tamamlandi!
+echo  Program baslatiliyor...
+echo ================================
+echo.
+
+:: start.bat'i ayni dizinden calistir
+call "%PROJECT_DIR%start.bat"
+
+endlocal
 exit /b 0
