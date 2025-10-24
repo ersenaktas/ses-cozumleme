@@ -1,24 +1,25 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+set "PROJECT_DIR=%~dp0"
+cd /d "%PROJECT_DIR%"
 
-if not exist "venv" (
-    echo Sanal ortam bulunamadi! Lütfen once install.bat dosyasini calistirin.
+if not exist "%PROJECT_DIR%venv" (
+    echo Sanal ortam bulunamadi! Lutfen once install.bat'i calistirin.
     pause
     exit /b 1
 )
 
-call "%~dp0venv\Scripts\activate.bat"
+call "%PROJECT_DIR%venv\Scripts\activate.bat"
 
-:: Whisper modülünü kontrol et
+:: whisper yüklü mü kontrol et
 python -m pip show openai-whisper >nul 2>&1
 if errorlevel 1 (
-    echo openai-whisper modülü eksik! Şimdi kuruluyor...
-    python -m pip install openai-whisper
+    echo openai-whisper eksik, kuruluyor...
+    python -m pip install openai-whisper --quiet
 )
 
 echo Program baslatiliyor...
-python "%~dp0ses_coz_4.py"
+python "%PROJECT_DIR%ses_coz_4.py"
 if errorlevel 1 (
     echo Program calistirilirken bir hata olustu!
     pause
